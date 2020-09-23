@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+  }
+  
+  .container {
+    position: relative;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .media {
+    position: relative;
+    margin: 0;
+  }
+  
+  .media.is-active {
+    position: fixed;
+    height: 100vw;
+    top: calc((100vh / 2) - 50vw);
+    right: 0;
+    left: 0;
+  }
+  
+  .media__img {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay,
+  .overlay-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    z-index: 1;
+  }
+  
+  .overlay {
+    background-color: rgba(255, 255, 255, 0.95);
+    will-change: opacity;
+    opacity: 0;
+  }
+  
+  .overlay.is-active {
+    pointer-events: auto;
+  }
+  .modal-shade,
+  .modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .modal-shade {
+    background: rgba(0, 0, 0, 0.9);
+    will-change: opacity;
+    z-index: 2;
+  }
+  
+  .modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  .modal {
+    background: white;
+    border-radius: 20px;
+    width: 400px;
+    height: 350px;
+  }

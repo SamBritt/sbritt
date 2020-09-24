@@ -18,9 +18,10 @@ function QuickAbout() {
                         </Col>
                         <Col md={10} lg={8}>
 
-                            <h1>Samuel Britt</h1>
+                            <h1>Samuel James Britt</h1>
                             <p>Software Developer</p>
-                            <div id="quickAboutDesc" className="cardOutline">
+                            
+                            <div id="quickAboutDesc" className="cardTextOutline">
                                 <p>I am a full stack developer specialising in frontend development. Creating works of art is my passion. Whatever medium I may choose – UI/UX and frontend design, paint, clay, metal; I can't keep my hands from tinkering, fixing, building, and creating. Check out my Portfolio and Art section for more!</p>
                             </div>
                             <div>

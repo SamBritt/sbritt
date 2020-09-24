@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
 :root{
-  --box-shadow: 0px 12px 32px -5px rgba(0,0,0,0.75);
+  --box-shadow: 0px 12px 32px -5px rgba(114, 198, 219, 0.151);
   --sidebar-color: #212832;
   --under-border: 1px solid #47748b;;
-  --card-color: #2c3a4d;
+  --card-color: #212832;
   --rounded-corners: 10px;
-  --text-color: #f3ebe2;
+  --text-color: #d1cac2;
   --active-link-color: 1px solid rgba(188, 219, 114, 0.75);
 }
 html{
@@ -17,6 +17,7 @@ body{
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   height: 100%;
+
 }
 body::-webkit-scrollbar{
   display: none;
@@ -24,27 +25,48 @@ body::-webkit-scrollbar{
 
 p{
   font-weight: 300;
+  
+  margin: 0 !important;
+}
+#backgroundWrapper{
+background: url('./images/cream-paper.png');
+background-color: rgb(0, 0, 0);
+position: relative;
+
 }
 .wrapper {
+  
+  
+  background: rgb(35,39,51);
+  background: linear-gradient(270deg, rgba(16, 22, 31, 0.89) 0%, rgba(10, 13, 18, 0.918) 100%);
   display: flex;
   width: 100%;
   align-items: stretch;
 }
 
 .nav{
-position: fixed;
+
 z-index: 3;
 width: 60px;
 }
+#navTextBold{
+  writing-mode: vertical-rl;
+text-orientation: mixed;
+margin-left: 55px;
+transform: rotate(180deg);
+color: #db9758;
+translate: all 0.5s ease;
+text-transform: uppercase;
+}
+
 #sidebar {
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   padding: 0px 0px;
-  background: rgb(58, 91, 112);
-background: linear-gradient(180deg, rgba(66,102,125,1) 0%, rgba(58,79,94,1) 100%);
-    transition: all 0.3s;
+  transition: all 0.3s;
     
 }
 #sidebar .sidebar-header {
@@ -106,6 +128,7 @@ transition: all 0.5s ease;
   -webkit-box-shadow: 0px 0px 15px -5px rgba(188, 219, 114, 0.75);
 -moz-box-shadow: 0px 0px 15px -5px rgba(188, 219, 114, 0.75);
 box-shadow: 0px 0px 15px -5px rgba(188, 219, 114, 0.75);
+
 }
 .list-group-item .active:hover::before{
   border: 1px solid rgba(188, 219, 114, 0.75);
@@ -118,8 +141,7 @@ box-shadow: 0px 0px 15px -5px rgba(188, 219, 114, 0.75);
   justify-content: center;
   align-items: center;
   color: var(--text-color);;
-  background: rgb(66,102,125);
-background: linear-gradient(180deg, rgba(66,102,125,1) 0%, rgba(58,79,94,1) 100%);
+  height: 100vh;
   padding: 50px;
   
 }
@@ -135,9 +157,10 @@ background: linear-gradient(180deg, rgba(66,102,125,1) 0%, rgba(58,79,94,1) 100%
   justify-content: center;
   text-align: center;
 }
-.cardOutline{
+.cardTextOutline{
   border-radius: var(--rounded-corners);
-  background: #3e516b;
+  padding: 20px;
+  background: #262d38;
 
 }
 

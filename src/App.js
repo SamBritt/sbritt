@@ -16,29 +16,31 @@ function App() {
 
   useEffect(() => {
     fetch("https://api.github.com/users/SamBritt")
-    .then(res => res.json())
-    .then(data => console.log(data))
-    
+      .then(res => res.json())
+      .then(data => console.log(data))
+
   }, [])
-  
+
   return (
     <Fragment>
-      <div className="wrapper">
-        <Navigation />
+      <div id="backgroundWrapper">
+        <div className="wrapper">
+          <Navigation location = {location}/>
 
-        <Col sm={11} id="content">
+          <Col sm={{ span:11, offset: 1 }} id="content">
 
-          <AnimatePresence exitBeforeEnter>
-            <Switch location = {location} key = {location.pathname}>
-              <Route exact path="/" component={About} />
-              <Route path="/work" component={Work} />
-              <Route path="/portfolio" component={Portfolio} />
-              <Route path="/art" component={Art} />
-              
-              <Route path="/contact" component={Contact} />
-            </Switch>
-          </AnimatePresence>
-        </Col>
+            <AnimatePresence exitBeforeEnter>
+              <Switch location={location} key={location.pathname}>
+                <Route exact path="/" component={About} />
+                <Route path="/work" component={Work} />
+                <Route path="/portfolio" component={Portfolio} />
+                <Route path="/art" component={Art} />
+
+                <Route path="/contact" component={Contact} />
+              </Switch>
+            </AnimatePresence>
+          </Col>
+        </div>
       </div>
     </Fragment>
 

@@ -25,9 +25,11 @@ function App() {
     <Fragment>
       <div id="backgroundWrapper">
         <div className="wrapper">
-          <Navigation location = {location}/>
+          <AnimatePresence exitBeforeEnter>
+            <Navigation location={location} />
+          </AnimatePresence>
 
-          <Col sm={{ span:11, offset: 1 }} id="content">
+          <Col sm={{ span: 11, offset: 1 }} id="content">
 
             <AnimatePresence exitBeforeEnter>
               <Switch location={location} key={location.pathname}>

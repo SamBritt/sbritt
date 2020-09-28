@@ -62,7 +62,7 @@ overflow: visible;
 position: relative;
 }
 #navTextBold{
-
+  -webkit-text-stroke: 0.4px #47748b;
   text-transform: uppercase;
   top: 20%;
   display: flex;
@@ -74,7 +74,7 @@ writing-mode: vertical-rl;
 text-orientation: mixed;
 font-size: 20vh;
 transform: rotate(180deg);
-color: #47748b;;
+color: transparent;
 translate: all 0.5s ease;
 }
 
@@ -347,7 +347,20 @@ height: 0;
   color: #212832;
 }
 
-
+#repoTable{
+  border-collapse: collapse;
+  border: 1px solid #47748b;
+  width: 100%;
+  background: var(--card-color);
+  color: var(--text-color);
+}
+th{
+  text-align: center;
+  height: 50px;
+}
+th, td{
+  border: 1px solid #47748b;
+}
 
 @media (max-width: 768px) {
   #sidebar{

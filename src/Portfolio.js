@@ -1,16 +1,16 @@
 
-import React from 'react'
-import { useState } from 'react';
-import { Container, Image, Row, Col } from 'react-bootstrap'
-import QuickPortfolio from './QuickPortfolio'
-import imageData from './data/imageData.js'
-import { motion, AnimatePresence } from 'framer-motion'
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { Container, Image, Row, Col } from 'react-bootstrap';
+import QuickPortfolio from './QuickPortfolio';
+import { motion, AnimatePresence } from 'framer-motion';
 import { pageTransition, pageVariants, pageStyle } from './animations/animations.js';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBrush, faStopwatch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBrush, faStopwatch, faCopy } from '@fortawesome/free-solid-svg-icons';
+import { RepoTable } from './RepoTable';
 
 function Portfolio() {
-
+    
 
     return (
         <Container fluid>
@@ -47,8 +47,10 @@ function Portfolio() {
                                 <FontAwesomeIcon className="cardIcon" icon={faStopwatch} size="10x" />
 
                             </motion.div>
-
+                        
+                            
                         </div>
+                        <RepoTable/>
                     </Col>
                 </Row>
             </motion.div>

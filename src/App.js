@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment} from 'react';
 import './App.css';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import Work from './Work';
@@ -7,19 +7,13 @@ import About from './About';
 import Art from './Art';
 import Portfolio from './Portfolio';
 import Navigation from './Navigation';
-import { Container, Col } from 'react-bootstrap'
+import {Col } from 'react-bootstrap'
 import { AnimatePresence } from 'framer-motion'
 import "typeface-montserrat";
 
 function App() {
   const location = useLocation();
-
-  useEffect(() => {
-    fetch("https://api.github.com/users/SamBritt")
-      .then(res => res.json())
-      .then(data => console.log(data))
-
-  }, [])
+  
 
   return (
     <Fragment>
@@ -35,7 +29,7 @@ function App() {
               <Switch location={location} key={location.pathname}>
                 <Route exact path="/" component={About} />
                 <Route path="/work" component={Work} />
-                <Route path="/portfolio" component={Portfolio} />
+                <Route path="/portfolio" component = {Portfolio} />
                 <Route path="/art" component={Art} />
 
                 <Route path="/contact" component={Contact} />

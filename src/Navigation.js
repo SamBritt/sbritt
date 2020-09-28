@@ -1,17 +1,16 @@
-import React, { Fragment, Component, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { LinkContainer } from "react-router-bootstrap";
-import meSmile from './images/ME.jpg'
-import { Navbar, Col, Nav, Image, Button, NavItem, ListGroup, ListGroupItem } from 'react-bootstrap'
+import { Col, Nav, ListGroup} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faBuilding, faPencilRuler, faFolderOpen, faMobileAlt, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faBuilding, faPencilRuler, faFolderOpen, faMobileAlt, faHome } from '@fortawesome/free-solid-svg-icons'
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavTitle } from './NavTitle';
 import { useLocation } from 'react-router-dom';
+
 function Navigation({ location }) {
     const [navText, setNavText] = useState("");
     const [activeNavText, setActiveNavText] = useState("");
-    const hey = useLocation();
-
+    
     const theHandOff = ({ location }) => {
 
     }
@@ -24,7 +23,7 @@ function Navigation({ location }) {
             output = `${location.pathname.substr(1)}`
         }
         setActiveNavText(output)
-        console.log(hey)
+        
     }, [location.pathname])
 
     return (

@@ -4,11 +4,23 @@ import { faClone } from '@fortawesome/free-solid-svg-icons';
 
 export const RepoTable = () => {
     const [repos, setRepos] = useState([{}])
+    const [loading, setloading] = useState(true);
 
     useEffect(() => {
+        let mounted = true;
+
         fetch("https://api.github.com/users/SamBritt/repos?per_page=100")
             .then(res => res.json())
-            .then(data => setData(data));
+            .then((data) => {
+                if(mounted){
+                    setloading(false);
+                    setData(data);
+                }
+            });
+
+            return function cleanup() {
+                mounted = false
+            }
     }, [])
 
     const setData = (repos) => {
@@ -28,6 +40,9 @@ export const RepoTable = () => {
     const copyToClipboard = (e) => {
         console.log(e)
     }
+    const dateCompare = (a,b) => {
+        return new Date(b.created_at) - new Date(a.created_at);
+    }
 
     return (
         <table id="repoTable">
@@ -42,7 +57,7 @@ export const RepoTable = () => {
             <tbody>
 
                 {
-                    repos.map((repo, idx) => {
+                    repos.sort(dateCompare).map((repo, idx) => {
                         return <tr key={idx}>
 
                             <td>{idx}</td>

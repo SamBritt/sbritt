@@ -17,7 +17,7 @@ body{
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   height: 100%;
-
+  line-height: 1.6;
 }
 body::-webkit-scrollbar{
   display: none;
@@ -51,32 +51,32 @@ width: 60px;
 }
 .navTextContainer{
   position: absolute;
-  height: 100%;
+  
   width: 100%;
 }
 #navVB{
   font: bold 70px Century Gothic, Arial;
-  width: 100px;
   height: 100%;
+  width: 100px;
 overflow: visible;
 position: relative;
 }
 #navTextBold{
-  -webkit-text-stroke: 0.4px #47748b;
+  
   text-transform: uppercase;
   top: 20%;
   display: flex;
   justify-content: center;
   margin: 0;
-  margin-left: 10px;
+  margin-left: 20%;
   height: 50%;
 position: absolute;
 writing-mode: vertical-rl;
 text-orientation: mixed;
-font-size: 100px;
-transform: rotate(180deg);
+font-size: 3.4em;
+transform: rotate(90deg);
 color: transparent;
-translate: all 0.5s ease;
+
 }
 
 #sidebar {
@@ -228,20 +228,13 @@ box-shadow: 0px 0px 15px -5px rgba(188, 219, 114, 0.75);
   display: flex;
   border-radius: var(--rounded-corners);
   width: 45%;
-  padding: 10px;
   background: var(--card-color);
   box-shadow: var(--box-shadow);
   height: 350px;
   justify-content: center;
   align-items: center;
 }
-.cardIcon{
-transition: all 0.7s ease-in-out;
-}
-.cardIcon:hover{
-  transform: rotateY(180deg);
-  color: #89b466;
-}
+
 
 
 .projectCard{

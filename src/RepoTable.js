@@ -51,7 +51,7 @@ export const RepoTable = () => {
     }
 
     return (
-        <div style={{ paddingTop: '50px' }}>
+        <div style={{ paddingTop: '85px' }}>
             <table id="repoTable" >
                 <thead>
                     <tr>

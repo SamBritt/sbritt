@@ -12,7 +12,7 @@ import { RepoTable } from './RepoTable';
 import cardData from './data/cardData.js';
 import WorkCard from './WorkCard';
 
-function Portfolio() {
+function Portfolio({repos}) {
 
     return (
         <Container fluid>
@@ -26,7 +26,10 @@ function Portfolio() {
                 <QuickPortfolio />
                 <Row className="justify-content-center">
                     <Col lg={10} className="p-0">
-
+                        <h1>Featured Projects</h1>
+                        <motion.hr style ={{border: '1px solid #47748b'}} 
+                        initial={{width: 0, marginRight: '100%'}}
+                        animate ={{width: '100%',marginRight: 0, transition: {duration: 0.6}}}/>
                         <div id="workGrid">
 
                             {
@@ -36,7 +39,9 @@ function Portfolio() {
                             }
 
                         </div>
-                        <RepoTable />
+                        <h1>Github Repositories</h1>
+                        <hr style ={{border: '1px solid #47748b'}} />
+                        <RepoTable repos = {repos}/>
                     </Col>
                 </Row>
             </motion.div>

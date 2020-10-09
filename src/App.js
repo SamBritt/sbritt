@@ -1,4 +1,4 @@
-import React, { Fragment} from 'react';
+import React, { Fragment, useState, useEffect} from 'react';
 import './App.css';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import Work from './Work';
@@ -14,6 +14,30 @@ import "typeface-montserrat";
 function App() {
   const location = useLocation();
   
+  const [repos, setRepos] = useState([{}])
+    const [loading, setloading] = useState(true);
+
+
+    useEffect(() => {
+        let mounted = true;
+
+        fetch("https://api.github.com/users/SamBritt/repos?per_page=10")
+            .then(res => res.json())
+            .then((data) => {
+                if (mounted) {
+                    setloading(false);
+                    setData(data);
+                }
+            });
+
+        return function cleanup() {
+            mounted = false
+        }
+    }, [])
+
+    const setData = (repos) => {
+        setRepos(repos)
+    }
 
   return (
     <Fragment>
@@ -29,7 +53,7 @@ function App() {
               <Switch location={location} key={location.pathname}>
                 <Route exact path="/" component={About} />
                 <Route path="/work" component={Work} />
-                <Route path="/portfolio" component = {Portfolio} />
+                <Route path="/portfolio" component = {() => <Portfolio repos = {repos} />} />
                 <Route path="/art" component={Art} />
 
                 <Route path="/contact" component={Contact} />

@@ -27,8 +27,8 @@ export const pageStyle = {
 };
 export const cardVariants = {
   initial: { x: 20, opacity: 0 },
-  in: { x: 0, opacity: 1, transition: { duration: 1 } },
-  out: { x: 20, opacity: 0, transition: { duration: 1 } }
+  in: { x: 0, opacity: 1},
+  out: { x: 20, opacity: 0}
 }
 
 export const navTextVariants = {

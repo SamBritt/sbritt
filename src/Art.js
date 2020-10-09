@@ -7,10 +7,12 @@ import './art.css';
 import { pageTransition, pageVariants } from './animations/animations.js';
 import imageData from './data/imageData.js'
 import { AnimatePresence } from 'framer-motion'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Data, animate, Override, Animatable } from "framer";
 import { Pagination } from './Pagination';
 import { cardVariants } from './animations/animations.js'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBrush } from '@fortawesome/free-solid-svg-icons';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export function ProjectCard({ image }) {
     const [toggled, setToggled] = useState(false);
@@ -21,29 +23,34 @@ export function ProjectCard({ image }) {
 
     }
 
+
     return (
         <Fragment>
-        <Col lg={3} className="px-0">
+            <Col md={4} style={{ padding: 0 }}>
 
-            <motion.div
-                initial="hidden"
-                animate="show"
-                exit="hidden"
-                whileHover={{ scale: 0.95 }}
-                whileTap={{ scale: 1.04 }}
-                className="projectCard"
-                onClick={(e) => setToggled(true)}>
+                <motion.div
+                    
+                    whileHover={{ scale: 0.95 }}
+                    whileTap={{ scale: 1.04 }}
+                    className="projectCard"
+                    onClick={() => setToggled(toggled => !toggled)}>
+                    <LazyLoadImage 
+                        alt={image.title}
+                        src={image.src}
+                        effect="blur"
+                        placeholder={<FontAwesomeIcon icon={faBrush} />}
+                    />
 
-                <img variants={item}
+                    {/*<img variants={item}
 
-                    src={image.src}
-                    alt={image.title} />
-            </motion.div>
+                        src={image.src}
+    alt={image.title} />*/}
+                </motion.div>
 
-            
 
-        </Col>
-        <Modal image={image} setToggled={setToggled} toggled={toggled} />
+
+            </Col>
+            <Modal image={image} setToggled={setToggled} toggled={toggled} />
         </Fragment>
     )
 }
@@ -61,12 +68,12 @@ export function Modal({ image, toggled, setToggled, children }) {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            style={{display: 'flex'}}>
+                            style={{ display: 'flex' }}>
                             <motion.img initial={{ opacity: 0, y: -100 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -100 }}
-                                onClick={(e) => setToggled(false)}
-                                
+                                onClick={() => setToggled(toggled => !toggled)}
+
                                 className="projectModalImage"
                                 src={image.src}
                                 alt={image.title} />
@@ -87,7 +94,10 @@ export const QuickArt = () => {
             <Row className="justify-content-center">
                 <Col lg={10} className="mainContentHeader">
                     <h1>Artwork</h1>
-                    <div>
+                    <motion.hr style={{ border: '1px solid #47748b' }}
+                        initial={{ width: 0, marginRight: '100%' }}
+                        animate={{ width: '100%', marginRight: 0, transition: { duration: 0.6 } }} />
+                    <div className="cardTextOutline">
                         <p>
                             Creating art has always been more than just a hobby of mine. It's something I simply have to do.
                         Below is a short list of selected sketches and ideas that I've created over the years.</p>
@@ -111,7 +121,7 @@ const Art = () => {
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [imagesPerPage, setImagesPerPage] = useState(8);
+    const [imagesPerPage, setImagesPerPage] = useState(6);
 
     useEffect(() => {
         const getImages = () => {
@@ -122,19 +132,15 @@ const Art = () => {
         }
 
         getImages();
-    }, [images]);
+    }, []);
 
     const grid = {
         hidden: {
-            opacity: 0,
-            transition: { when: "beforeChildren" }
+            opacity: 0
         },
         show: {
             opacity: 1,
-            transition: {
-                staggerChildren: 0.7,
-                staggerDirection: 1
-            }
+            transition: { when: "beforeChildren" }
         }
     }
 
@@ -142,8 +148,10 @@ const Art = () => {
     const indexOfFirst = indexOfLast - imagesPerPage;
     const currentImages = images.slice(indexOfFirst, indexOfLast);
 
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+    const paginate = (event, pageNumber) => {
+        event.preventDefault();
+        setCurrentPage(pageNumber);
+    }
 
     return (
 
@@ -162,7 +170,7 @@ const Art = () => {
                         <AnimatePresence exitBeforeEnter>
                             <motion.div
                                 className="py-5"
-                                // id="portfolioGrid"
+                                id="portfolioGrid"
                                 variants={grid}
                                 initial="hidden"
                                 animate="show"

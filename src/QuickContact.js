@@ -15,7 +15,10 @@ function QuickContact() {
             <Row className="justify-content-center">
                 <Col lg={10} className="mainContentHeader">
                     <h1>Contact</h1>
-                    <div>
+                    <motion.hr style ={{border: '1px solid #47748b'}} 
+                        initial={{width: 0, marginRight: '100%'}}
+                        animate ={{width: '100%',marginRight: 0, transition: {duration: 0.6}}}/>
+                    <div className = "cardTextOutline">
                         <p>Interested in hiring me? Click the button below to contact me, or email me at</p>
                         <p>sam.britt2@yahoo.com</p>
                     </div>

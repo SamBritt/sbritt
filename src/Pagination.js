@@ -10,6 +10,8 @@ export const Pagination = ({ imagesPerPage, totalImages, paginate }) => {
         pageNumbers.push(i)
     }
 
+    
+
     return (
         <nav>
             <ul className="pagination">
@@ -17,8 +19,8 @@ export const Pagination = ({ imagesPerPage, totalImages, paginate }) => {
                     <li key={number} className="page-item px-2 pt-5"  >
                         <motion.a
                             whileTap={{ scale: 0.9}}
-                            whileHover={{ scale: 1.1, backgroundColor : '#95e3e9d0'}}
-                            onClick={() => paginate(number)} 
+                            whileHover={{ scale: 1.1}}
+                            onClick={(e) => paginate(e, number)} 
                             className="page-link" 
                             >
                             {number}

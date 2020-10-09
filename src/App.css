@@ -4,6 +4,7 @@
   --sidebar-color: #212832;
   --under-border: 1px solid #47748b;
   --card-color: #212832;
+  
   --rounded-corners: 10px;
   --text-color: #d1cac2;
   --active-link-color: 1px solid rgba(188, 219, 114, 0.75);
@@ -38,7 +39,7 @@ position: relative;
   
   
   background: rgb(35,39,51);
-  background: linear-gradient(270deg, rgba(16, 22, 31, 0.89) 0%, rgba(10, 13, 18, 0.918) 100%);
+  background: linear-gradient(180deg, rgba(16, 22, 31, 0.945) 0%, rgba(20, 26, 36, 0.918) 100%);
   display: flex;
   width: 100%;
   align-items: stretch;
@@ -209,43 +210,49 @@ box-shadow: 0px 0px 15px -5px rgba(188, 219, 114, 0.75);
   
 }
 #portfolioGrid{
-  display: grid;  
-  grid-gap: 5px; 
-  grid-auto-flow: row;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
-  grid-auto-rows: 200px 200px;
+  background: var(--sidebar-color);
+  min-height: 32rem; 
+  height: 32em;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 #workGrid{
-  padding-top: 50px;
+  
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  align-items: center;
+  
 }
 
 
 .workCard{
   display: flex;
-  border-radius: var(--rounded-corners);
-  width: 45%;
-  background: var(--card-color);
-  box-shadow: var(--box-shadow);
-  height: 350px;
   justify-content: center;
   align-items: center;
+  margin: 20px 0px 20px 0px;
+  width: 100%;
+  height: 350px;
+  border-radius: var(--rounded-corners);
+  background: var(--card-color);
+  box-shadow: var(--box-shadow);
 }
 
 
 
 .projectCard{
   width: 100%;
-  height: 100%;
+  height: 250px;
 padding: 0;
+
 }
 .projectCard img {
   width: 100%;
-  height: 200px;
-  max-height: 200px;
+  height: 250px;
+  max-height: 250px;
   object-fit: cover;
 }
 .projectModal{
@@ -282,27 +289,28 @@ box-shadow: inset 0px 0px 132px 28px rgba(0,0,0,0.89);
   height: 100%;  
   object-fit: cover;
 }
-
-.pagination > li > a{
-  border-radius: 100% !important;
-  border: none;
-  background: var(--card-color);
-  color: var(--text-color);;
-
- 
-}
-.pagination > li > a:hover{
- border:none;
- cursor:pointer;
-}
 .pagination{
   justify-content: center;
   text-align: center;
 }
+
+.pagination > li > a{
+  border-radius: 100% !important;
+  border: 1px solid transparent;
+  background: var(--card-color);
+  color: var(--text-color);
+  transition: border 0.8s ease;
+ 
+}
+.pagination > li > a:hover{
+  background: var(--card-color);
+ border: 1px solid #79adc7;
+ cursor:pointer;
+}
 .linkButton{
   background: var(--sidebar-color);
   text-decoration: none;
-  border: 3px solid #121924;
+  border: var(--active-link-color);
   border-radius: var(--rounded-corners);
   outline: none;
   margin: 5px;
@@ -321,42 +329,74 @@ box-shadow: inset 0px 0px 132px 28px rgba(0,0,0,0.89);
 }
 
 .linkButton::before {
- background-color: #E3BAB3;
+ background-color: rgba(173, 240, 134, 0.712);
  color:  #212832;
  position: absolute;
  top: 0;
  left: 0;
  content: ""; 
  z-index: -1;
-transition: all 0.5s ease;
-width: 100%;
-height: 0;
+transition: all 0.4s ease;
+width: 0;
+height: 100%;
 }
 .linkButton:hover::before{
  
   
-  height: 100%;
+  width: 100%;
 }
-.linkButton:hover::after{
-  color: #212832;
+
+#repoTableContainer::-webkit-scrollbar-track
+{
+    
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+#repoTableContainer::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: transparent;
+}
+
+#repoTableContainer::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: #47748b;
+}
+#repoTableContainer{
+  padding: 20px;
+  border-radius: var(--rounded-corners);
+  background: var(--card-color);
 }
 
 #repoTable{
-  border-collapse: collapse;
-  border: 1px solid #47748b;
+  border-collapse:collapse;
+  
   width: 100%;
   background: var(--card-color);
   color: var(--text-color);
 }
+hr{
+  width: 100%;
+  border: 1px solid #47748b;
+}
+tr:nth-child(even){background-color: #272e3a;}
+
 th{
   height: 50px;
   text-align: center;
 }
 th, td{
-  border: 1px solid #47748b;
-  padding: 8px;
-  text-align: center;
+  border-bottom: 1px solid #47748b;
+  padding: 15px;
+  text-align: left;
 }
+tr:hover{
+background: #47748b4d;
+transition: all 0.5s ease-in-out;
+}
+
 
 @media (max-width: 768px) {
   #sidebar{

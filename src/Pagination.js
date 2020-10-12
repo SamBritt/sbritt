@@ -10,18 +10,27 @@ export const Pagination = ({ imagesPerPage, totalImages, paginate }) => {
         pageNumbers.push(i)
     }
 
+    const[activeIndex, setActiveIndex] = useState(1);
+    const toggleActiveClass = (number) => {
+        setActiveIndex(number)
+    }
+
+    
     
 
     return (
         <nav>
             <ul className="pagination">
-                {pageNumbers.map(number => (
+                {pageNumbers.map((number, idx) => (
                     <li key={number} className="page-item px-2 pt-5"  >
                         <motion.a
                             whileTap={{ scale: 0.9}}
                             whileHover={{ scale: 1.1}}
-                            onClick={(e) => paginate(e, number)} 
-                            className="page-link" 
+                            onClick={(e) => {
+                                paginate(e, number)
+                                toggleActiveClass(number)
+                            }} 
+                            className={activeIndex === number ? 'page-link active' : 'page-link'} 
                             >
                             {number}
                         </motion.a>

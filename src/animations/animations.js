@@ -26,9 +26,9 @@ export const pageStyle = {
   position: "absolute"
 };
 export const cardVariants = {
-  initial: { x: 20, opacity: 0 },
-  in: { x: 0, opacity: 1},
-  out: { x: 20, opacity: 0}
+  initial: { y: 20, opacity: 0 },
+  in: { y: 0, opacity: 1},
+  out: { y: -20, opacity: 0}
 }
 
 export const navTextVariants = {

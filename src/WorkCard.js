@@ -46,7 +46,7 @@ function WorkCard({ id, title, description }) {
                     animate={{ width: hovering ? '50%' : 0, marginLeft: hovering ? 0 : '50%', opacity: 1, transition: { type: "tween", ease: "anticipate", duration: 0.5, staggerChildren: 1 } }}
         
                 >
-                    <motion.div style={{ padding: '20px' }} animate={{ y: 0, opacity: hovering ? 1 : 0, transition: { delayChildren: 1 } }}>
+                    <motion.div style={{ padding: '1.6rem' }} animate={{ y: 0, opacity: hovering ? 1 : 0, transition: { delayChildren: 1 } }}>
                         <h1 style={{ textOverflow: "clip", whiteSpace: "nowrap" }}>{title}</h1>
                         <hr style={{ border: '1px solid #47748b' }} />
                         <motion.p animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} style={{ textOverflow: "ellipsis"}}>{description}</motion.p>

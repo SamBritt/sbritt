@@ -94,9 +94,8 @@ export const QuickArt = () => {
             <Row className="justify-content-center">
                 <Col lg={10} className="mainContentHeader">
                     <h1>Artwork</h1>
-                    <motion.hr style={{ border: '1px solid #47748b' }}
-                        initial={{ width: 0, marginRight: '100%' }}
-                        animate={{ width: '100%', marginRight: 0, transition: { duration: 0.6 } }} />
+                    <hr style ={{border: '1px solid #47748b', width: '33%', marginLeft: '33%'}}/>
+                    
                     <div className="cardTextOutline">
                         <p>
                             Creating art has always been more than just a hobby of mine. It's something I simply have to do.

@@ -1,56 +1,58 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Col, Row } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { pageTransition, pageVariants, pageStyle } from './animations/animations.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faMobile, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { SocialIcon } from './SocialIcon';
+
 function Contact() {
+    const [hovering, setHovering] = useState(false);
     return (
         <Container fluid>
-            <motion.div
-                initial="initial"
-                animate="in"
-                exit="out"
-                variants={pageVariants}
-                transition={pageTransition}>
-
+            <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
                 <Row className="justify-content-center">
-                    <Col md={10} className="p-0 formOutline">
-                        <Row className="justify-content-center">
-                            <Col style={{
-                                textAlign: 'center',
-                                borderRight: '0.5px solid #47748b',
-                                padding: '1.6rem'
-                            }} md={6}>
-                                <h2>Leave a message below</h2>
+                    <Col md={10} className="mainContentHeader">
+                        
+                                <div style={{ padding: '1.6rem' }}>
+                                    <div style={{ paddingBottom: '1.6rem' }}>
+                                        <h1>Contact</h1>
+                                        <hr style={{ border: '1px solid #47748b', width: '33%', margin: '0% 33% 0% 33%' }} />
+                                    </div>
+                                    <p className="cardTextOutline">Do you have a project that needs fixin' or makin'? Need a developer that can create both a beautiful site <u>and</u> hook it up with live data?
+                                    Whether it's Interface/Experience design, animations, custom graphics or logos, backend integrations – I'm the guy for you. </p>
+                                </div>
 
-                            </Col>
-                            <Col style={{ 
-                                textAlign: 'center', 
-                                borderLeft: '0.5px solid #47748b',
-                                padding: '1.6rem'
-                             }} md={6}>
-                                <h2>Reach Out</h2>
-                                <ul>
-                                    <li>Phone</li>
-                                    <li>Email</li>
-                                    <li>Linkedin</li>
-                                    <li>GitHub</li>
+                                <ul className="socialList">
+                                    <li>
+                                        <SocialIcon key={'phone'} info={'(615)719-1123'} icon={faMobileAlt} />
+                                    </li>
+                                    <li>
+                                        <SocialIcon key={"email"} info={'sam.britt2@yahoo.com'} icon={faEnvelope}/>
+
+                                    </li>
+                                    <li>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/sam-britt/">
+                                            <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/SamBritt?tab=repositories">
+                                            <FontAwesomeIcon icon={faGithub} size="2x" />
+                                        </a>
+                                    </li>
                                 </ul>
-                            </Col>
-                        </Row>
-                        <motion.hr style={{ border: '1px solid #47748b' }}
-                            initial={{ width: 0, margin: '0% 100% 0% 0%' }}
-                            animate={{ width: '100%', margin: '0% 0% 0% 0%', transition: { duration: 0.6 } }} />
+
+                        <hr style={{ border: '1px solid #47748b', width: '100%', margin: '0%' }}/>
+
                         <Row>
                             <Col md={{ span: 8, offset: 2 }}>
                                 <form id="contactForm">
                                     <div>
-                                        <label htmlFor="firstName">First Name</label>
-                                        <input type="text" id="firstName" name="firstName" />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="lastName">Last Name</label>
-                                        <input type="text" id="lastName" name="lastName" />
+                                        <label htmlFor="messageName">Name</label>
+                                        <input type="text" id="messageName" name="messageName"/>
                                     </div>
 
                                     <label htmlFor="emailHeading">Heading</label>
